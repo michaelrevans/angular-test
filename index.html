@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="listApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Test Angular app</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <aside class="col-sm-3">
+          <img src="./images/header.png" alt="Byrd Technology header logo">
+          <p class="dashboard">Dashboard</p>
+          <p class="list-title">Data explorer</p>
+          <ul>
+            <li class="active">
+              <a href="/users">Users</a>
+            </li>
+            <li>
+              <a href="/shipments">Shipments</a>
+            </li>
+            <li>
+              <a href="/pickups">Pickups</a>
+            </li>
+          </ul>
+        </aside>
+        <main class="col-sm-9"  ng-controller="ListController">
+          <h1>Users</h1>
+          <hr>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search users" ng-model="userSearch">
+            <span class="search-icon"></span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" name="" value=""></th>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Sender Name</th>
+                  <th>Email Address</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="user in users | filter:userSearch">
+                  <td><input type="checkbox" name="" value=""></td>
+                  <td><a href="/user/{{ user.id }}">#{{ user.id }}</a></td>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.senderName }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.type }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+<script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
