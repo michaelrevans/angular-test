@@ -37,7 +37,7 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th><input type="checkbox" name="" value=""></th>
+                  <th><input type="checkbox" ng-model="selectAll"></th>
                   <th>ID</th>
                   <th>Name</th>
                   <th>Sender Name</th>
@@ -47,7 +47,7 @@
               </thead>
               <tbody>
                 <tr ng-repeat="user in users | filter:userSearch">
-                  <td><input type="checkbox" name="" value=""></td>
+                  <td><input type="checkbox" ng-checked="selectAll"></td>
                   <td><a href="/user/{{ user.id }}">#{{ user.id }}</a></td>
                   <td>{{ user.name }}</td>
                   <td>{{ user.senderName }}</td>
